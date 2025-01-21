@@ -31,13 +31,13 @@ public class Application {
 
         List<Animal>[] arrayLists = new ArrayList[15];
         for (int i = 0; i < arrayLists.length; i++) {
-            arrayLists[i] = new ArrayList<>();                                          // Инициализация arrayLists[i]
-            Animal currentAnimal = objectAnimal(i);                                     // Объект ТЕКУЩЕГО ЖИВОТНОГО
-            Field[] declaredFields = currentAnimal.getClass().getDeclaredFields();      // Для объекта ТЕКУЩЕГО ЖИВОТНОГО получаем массив ПОЛЕЙ
-            int maxQuantity = (int) declaredFields[1].get(currentAnimal);                        // # Значение поля public int maxQuantity
-            for (int j = 0; j < maxQuantity; j++) {                                              // # Максимальное КОЛ-ВО Животных в локации. Потому будет случайным числом
-                arrayLists[i].add(currentAnimal);                                                // * Заполняем текущий СПИСОК List<Animal> массива arrayLists полученным
-            }                                                                                    // * количеством объектов ТЕКУЩЕГО ЖИВОТНОГО
+            arrayLists[i] = new ArrayList<>();
+            Animal currentAnimal = objectAnimal(i);
+            Field[] declaredFields = currentAnimal.getClass().getDeclaredFields();
+            int maxQuantity = (int) declaredFields[1].get(currentAnimal);
+            for (int j = 0; j < maxQuantity; j++) {
+                arrayLists[i].add(currentAnimal);
+            }                                                                                  
         }
 
         System.out.println("Начальное количество животных в одной локации:");
